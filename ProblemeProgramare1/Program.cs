@@ -55,11 +55,11 @@ namespace ProblemeProgramare1
                 int lungime = int.Parse(Console.ReadLine());
                 int[] arr = new int[lungime];
                 Citirea(arr);
-                Console.Write("Numarul de rotatii :");
+                Console.Write("Numarul de rotatii:");
                 int rotirenum = int.Parse(Console.ReadLine());
                 Vizualizarea(arr);
                 int[] vectorrotit = Rotirea(arr, rotirenum);
-                Console.WriteLine("Vectorul dupa rotatii");
+                Console.WriteLine("Vectorul dupa rotatii:");
                 Vizualizarea(vectorrotit);
             }
             catch (Exception e)
@@ -110,7 +110,7 @@ namespace ProblemeProgramare1
             {
                 Console.WriteLine("2.Calculati suma numerelor din vector");
                 int[] arr = { 1, 2, 3, 4, 5 };
-                Console.Write("Suma elementelor vectorului: ");
+                Console.WriteLine("Suma elementelor vectorului: ");
                 Console.WriteLine(Suma(arr));
                 Console.WriteLine(SumaRecursiva(arr, 0));
             }
@@ -213,7 +213,6 @@ namespace ProblemeProgramare1
                 arr[0] = 1;
             }
         }
-
         private static void Problema5()
         {
             try
@@ -551,7 +550,7 @@ namespace ProblemeProgramare1
                 }
             }
         }
-        public static int n { get; set; }
-        public static int[] array { get; set; }
+        private static int n { get; set; }
+        private static int[] array { get; set; }
     }
 }
