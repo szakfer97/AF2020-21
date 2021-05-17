@@ -176,39 +176,44 @@ namespace ProblemeProgramare1
             {
                 Console.WriteLine("4.Aratati vectorul format dupa adunarea elementelor cu unu");
                 int n = int.Parse(Console.ReadLine());
-                int[] v = new int[n];
-                for (int i = 0; i < n; i++)
-                {
-                    v[i] = int.Parse(Console.ReadLine());
-                }
-                int carry = 0;
-                v[n - 1] += 1;
-                carry = v[n - 1] / 10;
-                v[n - 1] = v[n - 1] % 10;
-                for (int i = n - 2; i >= 0; i--)
-                {
-                    if (carry == 1)
-                    {
-                        v[i] += 1;
-                        carry = v[i] / 10;
-                        v[i] = v[i] % 10;
-                    }
-                }
-                if (carry == 1)
-                {
-                    Array.Resize(ref v, n + 1);
-                    v[0] = carry;
-                }
-                for (int i = 0; i < v.Length; i++)
-                {
-                    Console.Write(v[i] + " ");
-                }
+                int[] arr = new int[n];
+                Citirea(arr);
+                Vizualizarea(arr);
+                AdunaUnu(ref arr);
+                Vizualizarea(arr);
             }
             catch (Exception e)
             {
                 Console.WriteLine($" {e.Message}");
             }
         }
+        private static void AdunaUnu(ref int[] arr)
+        {
+            int ultimul = arr.Length - 1;
+            arr[ultimul] += 1;
+            if (arr[ultimul] == 10)
+            {
+                arr[ultimul] = 0;
+                for (int i = ultimul - 1; i >= 0; i--)
+                {
+                    arr[i] += 1;
+                    if (arr[i] == 10)
+                    {
+                        arr[i] = 0;
+                    }   
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            if (arr[0] == 0)
+            {
+                arr = new int[arr.Length + 1];
+                arr[0] = 1;
+            }
+        }
+
         private static void Problema5()
         {
             try
