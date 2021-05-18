@@ -120,8 +120,10 @@ namespace ProblemeProgramare2
 
                 if (stang < drept)
                 {
-                    if (arr[stang] == arr[drept]) return drept;
-
+                    if (arr[stang] == arr[drept])
+                    {
+                        return drept;
+                    }
                     int temp = arr[stang];
                     arr[stang] = arr[drept];
                     arr[drept] = temp;
@@ -237,8 +239,7 @@ namespace ProblemeProgramare2
                 int[] arr = { 41, 98, 77, 51, 32, 34, 15, 65, 8, 29, 9 };
                 Vizualizare(arr);
                 InsertionSort(arr);
-                Vizualizare(arr);
-           
+                Vizualizare(arr);    
             }
             catch (Exception e)
             {
