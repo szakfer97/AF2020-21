@@ -12,7 +12,7 @@ namespace ProblemeProgramare2
         static void Main(string[] args)
         {
             Console.WriteLine("Numele meu este Szakacsi Ferenc-Adam");
-            Console.WriteLine("Acest program rezolva setul  2 de probleme");
+            Console.WriteLine("Acest program rezolva setul 2 de probleme");
             Problema1();
             Console.WriteLine("Va rog asteptati,se incarca problema urmatoare...");
             Thread.Sleep(500);
