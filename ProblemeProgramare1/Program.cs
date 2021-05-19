@@ -162,7 +162,9 @@ namespace ProblemeProgramare1
                 {
                     int res = Abs(arr, i, j);
                     if (res > max)
+                    {
                         max = res;
+                    }
                 }
             return max;
         }
