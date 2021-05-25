@@ -302,7 +302,9 @@ namespace ProblemeProgramare1
             for (i = 0; i < n; i++)
             {
                 for (j = 0; j < n; j++)
+                {
                     Console.Write(m[i, j] + " ");
+                }
                 Console.WriteLine();
             }
         }
@@ -437,8 +439,8 @@ namespace ProblemeProgramare1
                 Console.WriteLine("10.Rezolvam problema reginelor");
                 int n = int.Parse(Console.ReadLine());
                 int[] rand = new int[n];
-                bool[] vis = new bool[n];
-                Generare(0, n, rand, vis);
+                bool[] viz = new bool[n];
+                Generare(0, n, rand, viz);
                 Console.WriteLine();
             }
             catch (Exception e)
@@ -447,7 +449,7 @@ namespace ProblemeProgramare1
             }
         }
         static int num = 1;
-        private static void Generare(int v, int n, int[] rand, bool[] vis)
+        private static void Generare(int v, int n, int[] rand, bool[] viz)
         {
             if (v >= n)
             {
@@ -472,12 +474,12 @@ namespace ProblemeProgramare1
             {
                 for (int i = 0; i < n; i++)
                 {
-                    if (!vis[i])
+                    if (!viz[i])
                     {
-                        vis[i] = true;
+                        viz[i] = true;
                         rand[v] = i;
-                        Generare(v + 1, n, rand, vis);
-                        vis[i] = false;
+                        Generare(v + 1, n, rand, viz);
+                        viz[i] = false;
                     }
                 }
             }
