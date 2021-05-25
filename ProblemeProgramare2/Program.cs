@@ -107,17 +107,14 @@ namespace ProblemeProgramare2
             int pivot = arr[stang];
             while (true)
             {
-
                 while (arr[stang] < pivot)
                 {
                     stang++;
                 }
-
                 while (arr[drept] > pivot)
                 {
                     drept--;
                 }
-
                 if (stang < drept)
                 {
                     if (arr[stang] == arr[drept])
@@ -141,7 +138,7 @@ namespace ProblemeProgramare2
                 Console.WriteLine("3.Prezentam MergeSort");
                 int[] arr = { 1, 16, 32, 53, 4, 61, 92, 8, 7, 9 };
                 Vizualizare(arr);
-                MergeSort(arr);
+                MergeSort(arr, 0, arr.Length - 1);
                 Vizualizare(arr);
             }
             catch (Exception e)
@@ -149,18 +146,14 @@ namespace ProblemeProgramare2
                 Console.WriteLine($" {e.Message}");
             }
         }
-        private static void MergeSort(int[] arr)
-        {
-            MyMergeSort(arr, 0, arr.Length - 1);
-        }
-        private static void MyMergeSort(int[] arr, int start, int finish)
+        private static void MergeSort(int[] arr, int start, int finish)
         {
             int middle;
             if (start < finish)
             {
                 middle = (start + finish) / 2;
-                MyMergeSort(arr, start, middle);
-                MyMergeSort(arr, middle + 1, finish);
+                MergeSort(arr, start, middle);
+                MergeSort(arr, middle + 1, finish);
                 MyMerge(arr, start, middle, finish);
             }
         }
