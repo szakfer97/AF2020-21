@@ -516,43 +516,58 @@ namespace ProblemeProgramare1
             try
             {
                 Console.WriteLine("11.Prezentam ciurul lui Eratostene");
-                n = int.Parse(Console.ReadLine());
-                array = new int[n + 1];
-                CalculareNumerePrime();
-                AfisareNumerePrime();
+                int n = int.Parse(Console.ReadLine());
+                int x = 0;
+                for (int i = 1; i <= n; i++)
+                {
+                    for (int j = 1; j <= n; j++)
+                    {
+                        x++;
+                        if (EPrim(x))
+                        {
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        else
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                        }
+
+                        Console.Write($"{x,3} ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception e)
             {
                 Console.WriteLine($" {e.Message}");
             }
         }
-        private static void CalculareNumerePrime()
+        private static bool EPrim(int x)
         {
-            array[0] = 1;
-            array[1] = 1;
-            for (int i = 2; i <= Math.Sqrt(n); i++)
+            if (x == 1)
             {
-                if (array[i] == 0)
+                return true;
+            }
+            if (x == 2)
+            {
+                return true;
+            }
+            if (x % 2 == 0)
+            {
+                return false;
+            }
+            for (int i = 3; i * i <= x; i += 2)
+            {
+                if (x % i == 0)
                 {
-                    for (int j = 2; j <= n / i; j++)
-                    {
-                        array[i * j] = 1;
-                    }
+                    return false;
                 }
             }
+            return true;
         }
-        private static void AfisareNumerePrime()
-        {
-            Console.Write($"Numerele prime pana la {n} sunt: ");
-            for (int i = 2; i <= array.Length; i++)
-            {
-                if (array[i] == 0)
-                {
-                    Console.Write(i + " ");
-                }
-            }
-        }
-        private static int n { get; set; }
-        private static int[] array { get; set; }
     }
 }
