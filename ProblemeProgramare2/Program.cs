@@ -123,7 +123,7 @@ namespace ProblemeProgramare2
                     }
                     int temp = arr[stang];
                     arr[stang] = arr[drept];
-                    arr[drept] = temp;
+                    arr[drept] = temp; 
                 }
                 else
                 {
