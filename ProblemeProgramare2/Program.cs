@@ -61,11 +61,13 @@ namespace ProblemeProgramare2
             {
                 schimbat = false;
                 for (int j = arr.Length - 1; j > i; j--)
+                {
                     if (arr[j] < arr[j - 1])
                     {
                         (arr[j], arr[j - 1]) = (arr[j - 1], arr[j]);
                         schimbat = true;
                     }
+                }
                 if (!schimbat)
                 {
                     break;
